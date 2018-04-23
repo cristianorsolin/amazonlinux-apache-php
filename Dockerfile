@@ -26,7 +26,8 @@ RUN yum update -y && yum install -y \
 	&& sed -i 's/post_max_size = 8M/post_max_size = 50M/g' /etc/php.ini \
 	&& sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 50M/g' /etc/php.ini \
 	&& sed -i 's/^AddDefaultCharset/#AddDefaultCharset/g' /etc/httpd/conf/httpd.conf \
-	&& echo "ServerName localhost" >> /etc/httpd/conf/httpd.conf
+	&& echo "ServerName localhost" >> /etc/httpd/conf/httpd.conf \
+	&& echo "HttpProtocolOptions Unsafe" >> /etc/httpd/conf/httpd.conf
 
 COPY compression.conf /etc/httpd/conf.d/compression.conf
 

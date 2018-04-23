@@ -1,4 +1,9 @@
 #!/bin/bash
+if [ "$UID" = 0 ]; then
+	chown -R apache:apache /app
+else
+	chown -R $UID:apache /app && chmod 2775 /app
+fi
 
 if [ "$PHP_XDEBUG_ENABLED" = "**False**" ]; then
     unset PHP_XDEBUG_ENABLED
