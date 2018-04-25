@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ "$PHP_XDEBUG_ENABLED" = "**False**" ]; then
+if [ "$HOST_UID" = "**False**" ]; then
 	chown -R apache:apache /app
 else
 	chown -R $HOST_UID:apache /app && chmod 2775 /app
