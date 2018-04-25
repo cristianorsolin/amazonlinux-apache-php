@@ -32,6 +32,7 @@ RUN yum update -y && yum install -y \
 COPY compression.conf /etc/httpd/conf.d/compression.conf
 
 ENV PHP_XDEBUG_ENABLED **False**
+ENV HOST_UID **False**
 
 ADD run.sh /run.sh
 RUN chmod 755 /*.sh
