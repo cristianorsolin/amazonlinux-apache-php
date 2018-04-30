@@ -27,12 +27,14 @@ RUN yum update -y && yum install -y \
 	&& sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 50M/g' /etc/php.ini \
 	&& sed -i 's/^AddDefaultCharset/#AddDefaultCharset/g' /etc/httpd/conf/httpd.conf \
 	&& echo "ServerName localhost" >> /etc/httpd/conf/httpd.conf \
-	&& echo "HttpProtocolOptions Unsafe" >> /etc/httpd/conf/httpd.conf
+	&& echo "HttpProtocolOptions Unsafe" >> /etc/httpd/conf/httpd.conf \
+	&& curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 COPY compression.conf /etc/httpd/conf.d/compression.conf
 
 ENV PHP_XDEBUG_ENABLED **False**
 ENV HOST_UID **False**
+ENV COMPOSER_HOME /tmp/.composer
 
 ADD run.sh /run.sh
 RUN chmod 755 /*.sh
