@@ -35,6 +35,7 @@ COPY compression.conf /etc/httpd/conf.d/compression.conf
 ENV PHP_XDEBUG_ENABLED **False**
 ENV HOST_UID **False**
 ENV COMPOSER_HOME /tmp/.composer
+ENV APP_ENV dev
 
 ADD run.sh /run.sh
 RUN chmod 755 /*.sh
