@@ -1,4 +1,4 @@
-FROM amazonlinux
+FROM amazonlinux:1
 MAINTAINER https://github.com/cristianorsolin/amazonlinux-apache-php
 
 RUN yum update -y && yum install -y \
