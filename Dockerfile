@@ -31,6 +31,7 @@ RUN yum update -y && yum install -y \
 	&& curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 COPY compression.conf /etc/httpd/conf.d/compression.conf
+COPY cache.conf /etc/httpd/conf.d/cache.conf
 
 ENV PHP_XDEBUG_ENABLED **False**
 ENV HOST_UID **False**
